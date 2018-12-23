@@ -8,4 +8,6 @@
 
 ## algorithm
 
+[LeetCode-CPP](algorithm/doc/LeetCode-CPP.md)
+
 ## questions
