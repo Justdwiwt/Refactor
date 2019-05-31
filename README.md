@@ -14,6 +14,8 @@
 
 [SpringDataRedis](web/doc/SpringDataRedis.md)
 
+[SpringDataJPA](web/doc/SpringDataJPA.md)
+
 [Nginx](web/doc/Nginx.md)
 
 [WebFlux](web/doc/WebFlux.md)
