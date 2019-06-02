@@ -4,31 +4,31 @@
 
 ## JPA 的介绍以及哪些开源实现
 
-JPA（Java Persistence API）中文名 Java 持久层 API，是 JDK 5.0 注解或 XML 描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。 
+JPA（Java Persistence API）中文名 Java 持久层 API，是 JDK 5.0 注解或 XML 描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
 
 **JPA 包括以下三方面的内容：**
 
 - 一套 API 标准，在 javax.persistence 的包下面，用来操作实体对象，执行 CRUD 操作，框架在后台替代我们完成所有的事情，开发者从繁琐的 JDBC 和 SQL 代码中解脱出来。
 - 面向对象的查询语言：Java Persistence Query Language（JPQL），这是持久化操作中很重要的一个方面，通过面向对象而非面向数据库的查询语言查询数据，避免程序的 SQL 语句紧密耦合。
-- ORM（Object/Relational Metadata）元数据的映射，JPA 支持 XML 和 JDK 5.0 注解两种元数据的形式，元数据描述对象和表之间的映射关系，框架据此将实体对象持久化到数据库表中。 
+- ORM（Object/Relational Metadata）元数据的映射，JPA 支持 XML 和 JDK 5.0 注解两种元数据的形式，元数据描述对象和表之间的映射关系，框架据此将实体对象持久化到数据库表中。
 
 **JPA 的开源实现**
 
-JPA 的宗旨是为 POJO 提供持久化标准规范，经过这几年的实践探索，能够脱离容器独立运行，方便开发和测试的理念已经深入人心了。Hibernate 3.2+、TopLink 10.1.3 以及 OpenJPA、QueryDSL 都提供了 JPA 的实现，以及最后的 Spring 的整合 Spring Data JPA。目前互联网公司和传统公司大量使用了 JPA 的开发标准规范。 
+JPA 的宗旨是为 POJO 提供持久化标准规范，经过这几年的实践探索，能够脱离容器独立运行，方便开发和测试的理念已经深入人心了。Hibernate 3.2+、TopLink 10.1.3 以及 OpenJPA、QueryDSL 都提供了 JPA 的实现，以及最后的 Spring 的整合 Spring Data JPA。目前互联网公司和传统公司大量使用了 JPA 的开发标准规范。
 
 ![enter image description here](img/6fa75240-252e-11e8-8c14-19da63913af3)
 
 ## Spring Data
 
-Spring Data 项目是从 2010 年开发发展起来的，从创立之初 Spring Data 就想提供一个大家熟悉的、一致的、基于 Spring 的数据访问编程模型，同时仍然保留底层数据存储的特殊特性。它可以轻松地让开发者使用数据访问技术包括：关系数据库、非关系数据库（NoSQL）和基于云的数据服务。 
+Spring Data 项目是从 2010 年开发发展起来的，从创立之初 Spring Data 就想提供一个大家熟悉的、一致的、基于 Spring 的数据访问编程模型，同时仍然保留底层数据存储的特殊特性。它可以轻松地让开发者使用数据访问技术包括：关系数据库、非关系数据库（NoSQL）和基于云的数据服务。
 
-Spring Data Common 是 Spring Data 所有模块的公用部分，该项目提供跨 Spring 数据项目的共享基础设施，它包含了技术中立的库接口以及一个坚持 Java 类的元数据模型。 
+Spring Data Common 是 Spring Data 所有模块的公用部分，该项目提供跨 Spring 数据项目的共享基础设施，它包含了技术中立的库接口以及一个坚持 Java 类的元数据模型。
 
-Spring Data 不仅对传统的数据库访问技术：JDBC、Hibernate、JDO、TopLick、JPA、MyBatis 做了很好的支持和扩展、抽象、提供方便的 API，还对 NoSQL 等非关系数据做了很好的支持：MongoDB 、Redis、Apache Solr 等。 
+Spring Data 不仅对传统的数据库访问技术：JDBC、Hibernate、JDO、TopLick、JPA、MyBatis 做了很好的支持和扩展、抽象、提供方便的 API，还对 NoSQL 等非关系数据做了很好的支持：MongoDB 、Redis、Apache Solr 等。
 
 **Spring Data 的子项目：**
 
-主要项目（Main Modules）：    
+主要项目（Main Modules）：
 
 - Spring Data Commons
 - Spring Data Gemfire
@@ -48,15 +48,15 @@ Spring Data 不仅对传统的数据库访问技术：JDBC、Hibernate、JDO、T
 - Spring Data DynamoDB
 - Spring Data Elasticsearch
 - Spring Data Hazelcast
-- Spring Data Jest 
+- Spring Data Jest
 - Spring Data Neo4j
-- Spring Data Vault 
+- Spring Data Vault
 
 其他（Related Modules）：
 
 - Spring Data JDBC Extensions
-- Spring for Apache Hadoop 
-- Spring Content 
+- Spring for Apache Hadoop
+- Spring Content
 
 还有许多开源社区做出的许多贡献如 MyBatis 等。
 
@@ -196,18 +196,18 @@ public interface CrudRepository<T, ID> extends Repository<T, ID> {
     }
 ```
 
-可以发现它是先查一下传进去的实体是不是存在，然后判断是新增还是更新，是不是存在根据两种机制，一种是根据主键来判断，还有一种是根据 Version 来判断。所以如果去看 JPA 的控制台打印出来的 SQL 最少会有两条，一条是查询，一条是 `Insert` 或者 `Update`。 
+可以发现它是先查一下传进去的实体是不是存在，然后判断是新增还是更新，是不是存在根据两种机制，一种是根据主键来判断，还有一种是根据 Version 来判断。所以如果去看 JPA 的控制台打印出来的 SQL 最少会有两条，一条是查询，一条是 `Insert` 或者 `Update`。
 
 - 批量保存，原理和上面的那一条相同，我们去看实现的话，就是 for 循环调用上面的 save 方法。  
-- 根据主键查询实体，返回 JDK 1.8 的 Optional，这可以避免 null exception。    
-- 根据主键判断实体是否存在。    
-- 查询实体的所有列表。    
-- 根据主键列表查询实体列表。    
-- 查询总数。    
-- 根据主键删除，查看源码会发现，其是先查询出来再进行删除。   
-- 根据 entity 进行删除。   
-- 批量删除。   
-- 删除所有，原理：通过刚才的类关系查看其的实现类，SimpleJpaRepository 里面的 delete 实现方法如下，都是调用 delete 进行删除。 
+- 根据主键查询实体，返回 JDK 1.8 的 Optional，这可以避免 null exception。
+- 根据主键判断实体是否存在。
+- 查询实体的所有列表。
+- 根据主键列表查询实体列表。
+- 查询总数。
+- 根据主键删除，查看源码会发现，其是先查询出来再进行删除。
+- 根据 entity 进行删除。
+- 批量删除。
+- 删除所有，原理：通过刚才的类关系查看其的实现类，SimpleJpaRepository 里面的 delete 实现方法如下，都是调用 delete 进行删除。
 
 ``` java
     @Transactional
@@ -437,7 +437,7 @@ public interface UserJpaRepository extends JpaRepository<User,Long> {
 
 SimpleJpaRepository 是 JPA 整个关联数据库的所有 Repository 的接口实现类，如果想进行扩展，可以继承此类，如 QueryDsl 的扩展，还有默认的处理机制。如果将此类里面的实现方法看透了，基本上 JPA 的 API 就能掌握大部分，同时也是 Spring JPA 的动态代理的实现类，包括Query Method。
 
-SimpleJpaRepository 的部分源码如下： 
+SimpleJpaRepository 的部分源码如下：
 
 ``` java
 @Repository
@@ -464,16 +464,16 @@ Spring Data JPA 的最大特色，利用方法名定义查询方法。
 
 ### 定义查询方法的配置方法
 
-由于 Spring JPA Repository 的实现原理是采用动态代理的机制，所以介绍两种定义查询方法，从方法名称中可以指定特定用于存储的查询和更新，或通过使用 `@Query` 手动定义的查询，取决于实际对数据的操作，只需要实体 Repository 继承 Spring Data Common 里面的 Repository 接口即可。如果想有其他更多默认通用方法的实现，可以选择 JpaRepository、PagingAndSortingRepository、CrudRepository 等接口，也可以直接继承 JpaSpecificationExecutor、QueryByExampleExecutor，QuerydslPredicateExecutor 和自定义 Response，都可以达到同样的效果。 
+由于 Spring JPA Repository 的实现原理是采用动态代理的机制，所以介绍两种定义查询方法，从方法名称中可以指定特定用于存储的查询和更新，或通过使用 `@Query` 手动定义的查询，取决于实际对数据的操作，只需要实体 Repository 继承 Spring Data Common 里面的 Repository 接口即可。如果想有其他更多默认通用方法的实现，可以选择 JpaRepository、PagingAndSortingRepository、CrudRepository 等接口，也可以直接继承 JpaSpecificationExecutor、QueryByExampleExecutor，QuerydslPredicateExecutor 和自定义 Response，都可以达到同样的效果。
 
-如果不想扩展 Spring 数据接口，还可以使用它来注解存储库接口 `@RepositoryDefinition`，扩展 CrudRepository 公开了一套完整的方法来操纵实体。如果希望对所暴露的方法有选择性，只需将要暴露的方法复制 CrudRepository 到域库中即可，其实也是自定义 Repository 的一种。 
+如果不想扩展 Spring 数据接口，还可以使用它来注解存储库接口 `@RepositoryDefinition`，扩展 CrudRepository 公开了一套完整的方法来操纵实体。如果希望对所暴露的方法有选择性，只需将要暴露的方法复制 CrudRepository 到域库中即可，其实也是自定义 Repository 的一种。
 
 例如：选择性地暴露CRUD方法:
 
 ``` java
 @NoRepositoryBeaninterface
 MyBaseRepository<T, ID extends Serializable> extends Repository<T, ID> {
-    T findOne(ID id); 
+    T findOne(ID id);
     T save(T entity);
 }
 interface UserRepository extends MyBaseRepository<User, Long> {
@@ -485,8 +485,8 @@ interface UserRepository extends MyBaseRepository<User, Long> {
 
 即：
 
-- MyRepository Extends Repository 接口就可以实现 Defining Query Methods 的功能。    
-- 继承其他 Repository 的子接口，或者自定义子接口，可以选择性的暴漏 SimpleJpaRepository 里面已经实现的基础公用方法。 
+- MyRepository Extends Repository 接口就可以实现 Defining Query Methods 的功能。
+- 继承其他 Repository 的子接口，或者自定义子接口，可以选择性的暴漏 SimpleJpaRepository 里面已经实现的基础公用方法。
 
 ### 方法的查询策略设置
 
@@ -496,7 +496,7 @@ interface UserRepository extends MyBaseRepository<User, Long> {
 @EnableJpaRepositories(queryLookupStrategy= QueryLookupStrategy.Key.CREATE_IF_NOT_FOUND)
 ```
 
-其中，QueryLookupStrategy.Key 的值一共有三个： 
+其中，QueryLookupStrategy.Key 的值一共有三个：
 
 - `Create`：直接根据方法名进行创建，规则是根据方法名称的构造进行尝试，一般的方法是从方法名中删除给定的一组已知前缀，并解析该方法的其余部分。如果方法名不符合规则，启动的时候会报异常。
 - `USE_DECLARED_QUERY`：声明方式创建，即注解的方式。启动的时候会尝试找到一个声明的查询，如果没有找到将抛出一个异常，查询可以由某处注释或其他方法声明。
@@ -537,7 +537,7 @@ interface PersonRepository extends Repository<User, Long> {
    // 根据lastname字段查询忽略大小写
    List<User> findByLastnameIgnoreCase(String lastname);
    // 根据lastname和firstname查询equal并且忽略大小写
-   List<User> findByLastnameAndFirstnameAllIgnoreCase(String lastname, String firstname); 
+   List<User> findByLastnameAndFirstnameAllIgnoreCase(String lastname, String firstname);
   // 对查询结果根据lastname排序
    List<User> findByLastnameOrderByFirstnameAsc(String lastname);
    List<User> findByLastnameOrderByFirstnameDesc(String lastname);
@@ -598,7 +598,7 @@ interface UserRepository extends CrudRepository<User, Long> {
 }
 ```
 
-Type 枚举的关键源码如下： 
+Type 枚举的关键源码如下：
 
 ``` java
 public static enum Type {
@@ -644,9 +644,9 @@ List<Person> findByAddressZipCode(String zipCode);
 
 创建及其查找的过程是：解析算法首先将整个 part（AddressZipCode）解释为属性，并使用该名称（uncapitalized）检查域类的属性，如果算法成功，则使用该属性，如果不是，则算法拆分了从右侧的驼峰部分的信号源到头部和尾部，并试图找出相应的属性。
 
-例子中，AddressZip 和 Code 如果算法找到一个具有该头部的属性，那么它需要尾部，并从那里继续构建树，然后按照刚刚描述的方式将尾部分割，如果第一个分割不匹配，则算法将分割点移动到左（Address，ZipCode），然后继续。 
+例子中，AddressZip 和 Code 如果算法找到一个具有该头部的属性，那么它需要尾部，并从那里继续构建树，然后按照刚刚描述的方式将尾部分割，如果第一个分割不匹配，则算法将分割点移动到左（Address，ZipCode），然后继续。
 
-虽然这在大多数情况下应该起作用，但算法可能会选择错误的属性。假设 Person 该类也有一个 addressZip 属性，该算法将在第一个分割轮中匹配，并且基本上选择错误的属性，最后失败（因为该类型 addressZip 可能没有 code 属性）。 
+虽然这在大多数情况下应该起作用，但算法可能会选择错误的属性。假设 Person 该类也有一个 addressZip 属性，该算法将在第一个分割轮中匹配，并且基本上选择错误的属性，最后失败（因为该类型 addressZip 可能没有 code 属性）。
 
 要解决这个歧义，可以在方法名称中使用手动定义遍历点，所以我们的方法名称最终会如此：
 
@@ -654,7 +654,7 @@ List<Person> findByAddressZipCode(String zipCode);
 List<Person> findByAddress_ZipCode(ZipCode zipCode);
 ```
 
-Spring JPA 将下划线视为保留字符，但是建议遵循标准 Java 命名约定（即不使用属性名称中的下划线，而是使用骆驼案例），属性命名的时候注意下这个特性。 
+Spring JPA 将下划线视为保留字符，但是建议遵循标准 Java 命名约定（即不使用属性名称中的下划线，而是使用骆驼案例），属性命名的时候注意下这个特性。
 
 ### 查询结果的处理
 
@@ -675,7 +675,7 @@ List<User> findByLastname(String lastname, Pageable pageable);
 
 Slice 的作用是，只知道是否有下一个 Slice 可用，不会执行count，所以当查询较大的结果集时，只知道数据是足够的，而相关的业务场景也不用关心一共有多少页。
 
-排序选项也通过 Pageable 实例处理，如果只需要排序，需在 org.springframework.data.domain.Sort 参数中添加一个参数即可，正如看到的，只需返回一个 List 也是可能的。在这种情况下，Page 将不会创建构建实际实例所需的附加元数据（这反过来意味着必须不被发布的附加计数查询），而仅仅是限制查询仅查找给定范围的实体。 
+排序选项也通过 Pageable 实例处理，如果只需要排序，需在 org.springframework.data.domain.Sort 参数中添加一个参数即可，正如看到的，只需返回一个 List 也是可能的。在这种情况下，Page 将不会创建构建实际实例所需的附加元数据（这反过来意味着必须不被发布的附加计数查询），而仅仅是限制查询仅查找给定范围的实体。
 
 **限制查询结果**
 
@@ -690,13 +690,13 @@ List<User> findFirst10ByLastname(String lastname, Sort sort);
 List<User> findTop10ByLastname(String lastname, Pageable pageable);
 ```
 
-查询方法的结果可以通过关键字来限制 first 或 top，其可以被可互换使用，可选的数值可以追加到顶部/第一个以指定要返回的最大结果的大小。如果数字被省略，则假设结果大小为 1，限制表达式也支持 Distinct 关键字。此外，对于将结果集限制为一个实例的查询，支持将结果包装到一个实例中 Optional。如果将分页或切片应用于限制查询分页（以及可用页数的计算），则在限制结果中应用。 
+查询方法的结果可以通过关键字来限制 first 或 top，其可以被可互换使用，可选的数值可以追加到顶部/第一个以指定要返回的最大结果的大小。如果数字被省略，则假设结果大小为 1，限制表达式也支持 Distinct 关键字。此外，对于将结果集限制为一个实例的查询，支持将结果包装到一个实例中 Optional。如果将分页或切片应用于限制查询分页（以及可用页数的计算），则在限制结果中应用。
 
 **查询结果的不同形式（List/Stream/Page/Future）**
 
 流式查询结果
 
-可以通过使用 Java 8 Stream 作为返回类型来逐步处理查询方法的结果，而不是简单地将查询结果包装在 Stream 数据存储中，特定的方法用于执行流。 
+可以通过使用 Java 8 Stream 作为返回类型来逐步处理查询方法的结果，而不是简单地将查询结果包装在 Stream 数据存储中，特定的方法用于执行流。
 
 例如：使用 Java 8 流式传输查询的结果 Stream。
 
@@ -708,7 +708,7 @@ Stream<User> readAllByFirstnameNotNull();
 Stream<User> streamAllPaged(Pageable pageable);
 ```
 
-注意：流的关闭问题，try cache 是一种用关闭方法。 
+注意：流的关闭问题，try cache 是一种用关闭方法。
 
 ``` java
 Stream<User> stream;
@@ -764,7 +764,7 @@ ListenableFuture<User> findOneByLastname(String lastname);(3)
 
 **Projections 对查询结果的扩展**
 
-Spring JPA 对 Projections 的扩展的支持，个人觉得这是个非常好的东西，从字面意思上理解就是映射，指的是和 DB 的查询结果的字段映射关系。一般情况下，我们是返回的字段和 DB 的查询结果的字段是一一对应的，但有的时候，需要返回一些指定的字段，不需要全部返回，或者返回一些复合型的字段，还得自己写逻辑。Spring Data 正是考虑到了这一点，允许对专用返回类型进行建模，以便更有选择地将部分视图对象。 
+Spring JPA 对 Projections 的扩展的支持，个人觉得这是个非常好的东西，从字面意思上理解就是映射，指的是和 DB 的查询结果的字段映射关系。一般情况下，我们是返回的字段和 DB 的查询结果的字段是一一对应的，但有的时候，需要返回一些指定的字段，不需要全部返回，或者返回一些复合型的字段，还得自己写逻辑。Spring Data 正是考虑到了这一点，允许对专用返回类型进行建模，以便更有选择地将部分视图对象。
 
 假设 Person 是一个正常的实体，和数据表 Person 一一对应，我们正常的写法如下：
 
@@ -831,14 +831,14 @@ PersonRepository 里面保持不变，这样会返回一个 firstname 和 lastna
 
 ### 实现机制介绍
 
-通过 QueryExecutorMethodInterceptor 这个类的源代码，我们发现，该类实现了 MethodInterceptor 接口，也就是说它是一个方法调用的拦截器， 当一个 Repository 上的查询方法，譬如说 findByEmailAndLastname 方法被调用，Advice 拦截器会在方法真正的实现调用前，先执行这个 MethodInterceptor 的 invoke 方法。这样我们就有机会在真正方法实现执行前执行其他的代码了。 
+通过 QueryExecutorMethodInterceptor 这个类的源代码，我们发现，该类实现了 MethodInterceptor 接口，也就是说它是一个方法调用的拦截器， 当一个 Repository 上的查询方法，譬如说 findByEmailAndLastname 方法被调用，Advice 拦截器会在方法真正的实现调用前，先执行这个 MethodInterceptor 的 invoke 方法。这样我们就有机会在真正方法实现执行前执行其他的代码了。
 
-然而对于 QueryExecutorMethodInterceptor 来说，最重要的代码并不在 invoke 方法中，而是在它的构造器 QueryExecutorMethodInterceptor(RepositoryInformationr、Object customImplementation、Object target) 中。 
+然而对于 QueryExecutorMethodInterceptor 来说，最重要的代码并不在 invoke 方法中，而是在它的构造器 QueryExecutorMethodInterceptor(RepositoryInformationr、Object customImplementation、Object target) 中。
 
-最重要的一段代码是这段： 
+最重要的一段代码是这段：
 
 ``` java
-for (Method method : queryMethods) { 
+for (Method method : queryMethods) {
      // 使用lookupStrategy，针对Repository接口上的方法查询Query
      RepositoryQuery query = lookupStrategy.resolveQuery(method, repositoryInformation, factory, namedQueries); invokeListeners(query);
      queries.put(method, query);
@@ -939,7 +939,7 @@ repository.findByFirstName("jackzhang","last_name");
 
 @Query 的 JPQL 情况下，想实现排序，方法上面直接用 PageRequest 或者直接用 Sort 参数都可以做到。
 
-在排序实例中实际使用的属性需要与实体模型里面的字段相匹配，这意味着它们需要解析为查询中使用的属性或别名。这是一个`state_field_path_expression JPQL`定义，并且 Sort 的对象支持一些特定的函数。 
+在排序实例中实际使用的属性需要与实体模型里面的字段相匹配，这意味着它们需要解析为查询中使用的属性或别名。这是一个`state_field_path_expression JPQL`定义，并且 Sort 的对象支持一些特定的函数。
 
 例如：Sort and JpaSort 的使用：
 
@@ -951,10 +951,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
   List<Object[]> findByAsArrayAndSort(String lastname, Sort sort);
 }
 //调用方的写法，如下：
-repo.findByAndSort("lannister", new Sort("firstname"));               
-repo.findByAndSort("stark", new Sort("LENGTH(firstname)"));          
+repo.findByAndSort("lannister", new Sort("firstname"));
+repo.findByAndSort("stark", new Sort("LENGTH(firstname)"));
 repo.findByAndSort("targaryen", JpaSort.unsafe("LENGTH(firstname)"));
-repo.findByAsArrayAndSort("bolton", new Sort("fn_len"));   
+repo.findByAsArrayAndSort("bolton", new Sort("fn_len"));
 ```
 
 #### @Query 的分页
@@ -987,13 +987,13 @@ select  *   from  user_info  where  first_name=? /* #pageable# */  order by  las
 
 > 注意：
 >
-> - 这个注释 /* #pageable# */ 必须有；   
-> - 估计有可能随着版本的变化这个会做优化。   
+> - 这个注释 /* #pageable# */ 必须有；
+> - 估计有可能随着版本的变化这个会做优化。
 > - 另外一种实现方法就是自己写两个查询方法，自己手动分页。
 
 ### @Param 用法
 
-默认情况下，参数是通过顺序绑定在查询语句上的，这使得查询方法对参数位置的重构容易出错。为了解决这个问题，可以使用 @ Param 注解指定方法参数的具体名称，通过绑定的参数名字做查询条件，这样不需要关心参数的顺序，推荐这种做法，比较利于代码重构。 
+默认情况下，参数是通过顺序绑定在查询语句上的，这使得查询方法对参数位置的重构容易出错。为了解决这个问题，可以使用 @ Param 注解指定方法参数的具体名称，通过绑定的参数名字做查询条件，这样不需要关心参数的顺序，推荐这种做法，比较利于代码重构。
 
 例如：根据参数进行查询。：
 
@@ -1015,7 +1015,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 > 有两种方式能被解析出来：
 >
-> - 如果定了 @Entity 注解，直接用其属性名。      
+> - 如果定了 @Entity 注解，直接用其属性名。
 > - 如果没定义，直接用实体的类的名称。
 
 在以下的例子中，我们在查询语句中插入表达式：
@@ -1072,7 +1072,7 @@ public @interface Modifying {
 }
 ```
 
-简单的针对某些特定属性的更新，也可以直接用基类里面提供的通用 save 来做更新（即继承 CrudRepository 接口）。 
+简单的针对某些特定属性的更新，也可以直接用基类里面提供的通用 save 来做更新（即继承 CrudRepository 接口）。
 
 **还有第三种方法就是自定义 Repository 使用 EntityManager 来进行更新操作。**
 
@@ -1510,10 +1510,10 @@ public @interface Column {
 }
 ```
 
-#### （10）`@Temporal` 用来设置 Date 类型的属性映射到对应精度的字段。 
+#### （10）`@Temporal` 用来设置 Date 类型的属性映射到对应精度的字段。
 
-- `@Temporal(TemporalType.DATE)`映射为日期 // date （只有日期）    
-- `@Temporal(TemporalType.TIME)`映射为日期 // time （是有时间）   
+- `@Temporal(TemporalType.DATE)`映射为日期 // date （只有日期）
+- `@Temporal(TemporalType.TIME)`映射为日期 // time （是有时间）
 - `@Temporal(TemporalType.TIMESTAMP)`映射为日期 // date time （日期+时间）
 
 #### （11）`@Enumerated` 这个注解很好用，直接映射 enum 枚举类型的字段。
@@ -1638,7 +1638,7 @@ public @interface OneToOne {
     FetchType fetch() default EAGER;
     //是否允许为空
     boolean optional() default true;
-    //关联关系被谁维护的。 非必填，一般不需要特别指定。   
+    //关联关系被谁维护的。 非必填，一般不需要特别指定。
 //注意：只有关系维护方才能操作两者的关系。被维护方即使设置了维护方属性进行存储也不会更新外键关联。1）mappedBy不能与@JoinColumn或者@JoinTable同时使用。2）mappedBy的值是指另一方的实体里面属性的字段，而不是数据库字段，也不是实体的对象的名字。既是另一方配置了@JoinColumn或者@JoinTable注解的属性的字段名称。
     String mappedBy() default "";
     //是否级联删除。和CascadeType.REMOVE的效果一样。两种配置了一个就会自动级联删除
@@ -1646,9 +1646,9 @@ public @interface OneToOne {
 }
 ```
 
-##### 2）用法 `@OneToOne` 需要配合 `@JoinColumn` 一起使用。注意：可以双向关联，也可以只配置一方，看实际需求。 
+##### 2）用法 `@OneToOne` 需要配合 `@JoinColumn` 一起使用。注意：可以双向关联，也可以只配置一方，看实际需求。
 
-案例：假设一个部门只有一个员工，Department 的内容如下： 
+案例：假设一个部门只有一个员工，Department 的内容如下：
 
 ``` java
 @OneToOne
@@ -1709,7 +1709,7 @@ public @interface ManyToOne {
 @Table(name="user")
 public class User implements Serializable{
 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="user")
-    private Set<role> setRole; 
+    private Set<role> setRole;
 ......}
 @Entity
 @Table(name="role")
@@ -1748,7 +1748,7 @@ public @interface OrderBy {
 public class User implements Serializable{
 @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="user")
 @OrderBy("role_name DESC")
-    private Set<role> setRole; 
+    private Set<role> setRole;
 ......}
 ```
 
@@ -1814,7 +1814,7 @@ public class Blog{
     @Id
     @Column(name = "id")
     private Integer id;
-    @ManyToMany(cascade=CascadeType.ALL) 
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
         name="blog_tag_relation",
 joinColumns=@JoinColumn(name="blog_id",referencedColumnName="id"),      inverseJoinColumn=@JoinColumn(name="tag_id",referencedColumnName="id")
@@ -2052,7 +2052,7 @@ public class MessageRequest extends DefaultSimpleAuditable {
 - 利用 `@JsonIgnore` 在另外一方忽略掉（最简单，但是不推荐，这样会改变业务场景）。
 - 利用 `@JsonManagedReference` 和 `@JsonBackReference` 注解来表明 back 关系，来解决 Jack Son 序列化的时候所产生的双向关联死循环。
 
-`@JsonBackReference` 和 `@JsonManagedReference`：这两个标注通常配对使用，通常用在父子关系中。`@JsonBackReference` 标注的属性在序列化（serialization，即将对象转换为 JSON 数据）时，会被忽略（即结果中的 JSON 数据不包含该属性的内容）。`@JsonManagedReference` 标注的属性则会被序列化。在序列化时，`@JsonBackReference` 的作用相当于 `@JsonIgnore`，此时可以没有 `@JsonManagedReference`，但在反序列化（deserialization，即 JSON 数据转换为对象）时，如果没有 `@JsonManagedReference`，则不会自动注入 `@JsonBackReference` 标注的属性（被忽略的父或子）；如果有 `@JsonManagedReference`，则会自动注入自动注入 `@JsonBackReference` 标注的属性。 
+`@JsonBackReference` 和 `@JsonManagedReference`：这两个标注通常配对使用，通常用在父子关系中。`@JsonBackReference` 标注的属性在序列化（serialization，即将对象转换为 JSON 数据）时，会被忽略（即结果中的 JSON 数据不包含该属性的内容）。`@JsonManagedReference` 标注的属性则会被序列化。在序列化时，`@JsonBackReference` 的作用相当于 `@JsonIgnore`，此时可以没有 `@JsonManagedReference`，但在反序列化（deserialization，即 JSON 数据转换为对象）时，如果没有 `@JsonManagedReference`，则不会自动注入 `@JsonBackReference` 标注的属性（被忽略的父或子）；如果有 `@JsonManagedReference`，则会自动注入自动注入 `@JsonBackReference` 标注的属性。
 
 正如上面的 MessageRequest 类中描述一样，我们来开看一下 MessageRequestTelephone 的关键源码如下：
 
@@ -2079,7 +2079,7 @@ public class MessageRequestTelephone extends DefaultSimpleAuditable implements S
 
 #### 外键与关联关系注解的问题
 
-##### （1）虽然我们使用关联查询，但是在实际工作中，所有的关联查询，表上一般是不需要建立外键约束的，为了提高操作效率，但是每个外键的字段上都会加上一般索引。 
+##### （1）虽然我们使用关联查询，但是在实际工作中，所有的关联查询，表上一般是不需要建立外键约束的，为了提高操作效率，但是每个外键的字段上都会加上一般索引。
 
 ##### （2）不同的关联关系的配置，@JoinClumn 里面的（name、referencedColumnName）代表的意思是不一样的，很容易弄混。我们有两种方法应对：
 
@@ -2111,4 +2111,3 @@ logging.level.org.hibernate.type.descriptor.sql=trace
 ```
 
 级联更新、级联删除的时候比较危险，建议考虑清楚，或者完全掌握的时候再去使用，否则生产产生事故还是比较糟糕的。
-
